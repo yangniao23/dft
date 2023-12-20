@@ -1,5 +1,5 @@
 set datafile separator ","
-version = 3
+version = ""
 name = "spectrum".version
 
 set terminal pdf enhanced
@@ -20,4 +20,5 @@ set xlabel "f [kHz]"
 set ylabel "Amplitude Spectrum"
 #set logscale x
 
-plot name.".dat" using 1:2 w boxes title "スペクトル"
+# DFT で 1/6, 1/3, 1/2 -> 1/3, 2/3, 1 されているから3倍して出力
+plot name.".dat" using 1:($2*3) w boxes title "スペクトル"

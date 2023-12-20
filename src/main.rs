@@ -52,9 +52,18 @@ fn main() {
         .collect::<Vec<f64>>();
     let spectrum = dft(signal, dt);
 
+    // スペクトルの最大値を1に正規化
+    let abs_max = spectrum
+        .iter()
+        .fold(f64::MIN, |max, &s| f64::max(max, s.norm()));
+    let spectrum = spectrum
+        .iter()
+        .map(|s| s / abs_max)
+        .collect::<Vec<Complex<f64>>>();
+
     for i in 0..(len / 2) {
         //println!("{:.7},{:.7}", f[i], 2.0 * spectrum[i].norm() / len as f64);
-        println!("{:.7},{:.7}", f[i], 2.0 * spectrum[i].norm());
+        println!("{:.7},{:.7}", f[i], spectrum[i].norm());
     }
 }
 

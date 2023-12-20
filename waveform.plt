@@ -1,5 +1,5 @@
 set datafile separator ","
-version = 3
+version = ""
 name = "waveform".version
 
 set terminal pdf enhanced

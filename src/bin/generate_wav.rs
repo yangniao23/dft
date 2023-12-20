@@ -43,5 +43,7 @@ fn main() {
         .fold(f64::MIN, |max, &s| f64::max(max, s.abs()));
     let signal = signal.iter().map(|s| s / abs_max).collect::<Vec<f64>>();
 
+    //let signal = generate_signal(1000.0, 0.1);
+
     write_wav("./sample.wav", signal);
 }
