@@ -32,7 +32,6 @@ fn dft(signal: Vec<f64>, dt: f64) -> Vec<Complex<f64>> {
                 sum += signal[k] * Complex::new(theta.cos(), theta.sin()) * dt;
             }
             sum
-            //sum * dt
         });
         handles.push(handle);
     }
